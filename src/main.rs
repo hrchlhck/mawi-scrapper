@@ -54,16 +54,16 @@ async fn main() -> Result<(), scrapper::error::Error> {
                 for h in handles {
                     h.await;
                 }
-                
-                return Ok(())
-            } 
-            
+
+                return Ok(());
+            }
+
             (url, output_path) = Program::format(&args.program()).unwrap();
             return scrapper::run(url, output_path).await;
         }
         cli::Program::PcapParser => {
             error!("Not implemented yet!");
-            return Ok(())
+            return Ok(());
         }
     }
 

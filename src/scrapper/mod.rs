@@ -21,7 +21,7 @@ pub fn create_path(base_output_path: &String) -> String {
 
     if !base_path.exists() {
         match create_dir(base_path.clone()) {
-            Ok(_) => {},
+            Ok(_) => {}
             Err(e) => {}
         }
         info!("Created {base_path:#?}");

@@ -14,13 +14,13 @@ pub enum Program {
             required = false
         )]
         base_url: String,
-        
+
         /// Base output path for saving the PCAP files
         #[arg(short = 'o', long, required = true)]
         base_output_path: String,
-        
+
         /// Download first day of every month of a year
-        #[arg(short='A', long, default_value_t=false)]
+        #[arg(short = 'A', long, default_value_t = false)]
         whole_year: bool,
 
         /// Year of the data
@@ -34,7 +34,6 @@ pub enum Program {
         /// Day number
         #[arg(short, long, default_value = None, required = false)]
         day: Option<u8>,
-
     },
     PcapParser,
 }
@@ -68,7 +67,13 @@ impl Program {
         }
     }
 
-    pub fn format_custom(base_url: Arc<String>, base_path: Arc<String>, year: u16, month: u8, day: Option<u8>) -> (String, String) {
+    pub fn format_custom(
+        base_url: Arc<String>,
+        base_path: Arc<String>,
+        year: u16,
+        month: u8,
+        day: Option<u8>,
+    ) -> (String, String) {
         let new_base_path: String = create_path(&base_path);
         match day {
             Some(d) => (

@@ -33,7 +33,10 @@ pub async fn download_file(url: &Url, output_path: PathBuf) -> Result<(), Error>
     info!("Started downloading {filename}");
     match total {
         Some(c) => {
-            info!("[{url}] Total file size: {:.2}GB", c as f32 / 1024.0_f32.powf(3.0));
+            info!(
+                "[{url}] Total file size: {:.2}GB",
+                c as f32 / 1024.0_f32.powf(3.0)
+            );
         }
         None => {}
     }
